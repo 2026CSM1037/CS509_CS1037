@@ -4,8 +4,9 @@
 using namespace std;
 
 int main() {
-    int n = 100;
-    int m = 100;
+    int m = 60;
+    int k = 40; //col of matrix A, also the row of matrix B
+    int n = 50;
 
     random_device rd;
     mt19937 gen(rd());
@@ -15,15 +16,23 @@ int main() {
 
     uniform_int_distribution<int> distr(low_val, high_val);
 
-    ofstream outFile("custom_matrix.txt");   
+    ofstream outFile("custom_test_case.txt");   
 
     if (!outFile) {
         cout << "Error opening file!" << endl;
         return 1;
     }
 
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; j++) {
+    outFile<<m<<" "<<k<<" "<<n<<"\n";
+    for (int i=0; i<m; i++) {
+        for (int j=0; j<k; j++) {
+            outFile << distr(gen) << " ";
+        }
+        outFile << '\n';
+    }
+
+    for (int i=0; i<k; i++) {
+        for (int j=0; j<n; j++) {
             outFile << distr(gen) << " ";
         }
         outFile << '\n';

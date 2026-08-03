@@ -5,4 +5,6 @@ using namespace std;
 
 vector<vector<int>> simpleGEMM(vector<vector<int>> &A, vector<vector<int>> &B);
 
+vector<vector<int>> blockingGEMM(vector<vector<int>> &A, vector<vector<int>> &B, int blockSize);
+
 #endif
