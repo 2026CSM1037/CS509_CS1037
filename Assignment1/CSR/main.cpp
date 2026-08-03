@@ -48,24 +48,23 @@ int main() {
 
     auto blockStart=chrono::high_resolution_clock::now();
 
-    for(auto it=graph.begin();it!=graph.end();it++) {
-        int key=it->first;
-        offset[key]=pos;
-
-        for(int i=0;i<it->second.size();i++) {
-            intermediate[pos]=it->second[i].first;
-            property[pos]=it->second[i].second;
+    for(int i=0;i<vertices;i++){
+        offset[i] = pos;
+        for(int j=0;j<graph[i].size();j++){
+            intermediate[pos] = graph[i][j].first;
+            property[pos] = graph[i][j].second;
             pos++;
         }
     }
 
-    offset[vertices-1]=pos;
+    offset[vertices]=pos; // last index is basically going to store total edges
+    // for a vertex with no outgoing edges offset[] is going to be -1
 
     auto blockEnd=chrono::high_resolution_clock::now();
     auto blockTime=chrono::duration_cast<chrono::milliseconds>(blockEnd-blockStart);
 
     cout<<"Offset Array"<<endl;
-    printArray(offset,vertices);
+    printArray(offset,vertices+1);
 
     cout<<"Intermediate Array"<<endl;
     printArray(intermediate,pos);
