@@ -25,10 +25,10 @@ int main() {
     map<int, vector<pair<int,int>>> graph;
 
     for(int i=0;i<vertices;i++) {
-        int vertex,degree;
-        fin>>vertex>>degree;
+        int vertex,outDegree;
+        fin>>vertex>>outDegree;
 
-        for(int j=0;j<degree;j++) {
+        for(int j=0;j<outDegree;j++) {
             int neighbor,weight;
             fin>>neighbor>>weight;
 
@@ -46,22 +46,23 @@ int main() {
 
     int pos=0;
 
+    auto blockStart=chrono::high_resolution_clock::now();
+
     for(auto it=graph.begin();it!=graph.end();it++) {
-
-        int vertex=it->first;
-
-        offset[vertex]=pos;
+        int key=it->first;
+        offset[key]=pos;
 
         for(int i=0;i<it->second.size();i++) {
-
             intermediate[pos]=it->second[i].first;
             property[pos]=it->second[i].second;
-
             pos++;
         }
     }
 
     offset[vertices-1]=pos;
+
+    auto blockEnd=chrono::high_resolution_clock::now();
+    auto blockTime=chrono::duration_cast<chrono::milliseconds>(blockEnd-blockStart);
 
     cout<<"Offset Array"<<endl;
     printArray(offset,vertices);
@@ -71,6 +72,8 @@ int main() {
 
     cout<<"Property Array"<<endl;
     printArray(property,pos);
+
+    cout<<"CSR conversion completed in : "<<blockTime.count()<<" milliseconds"<<endl;
 
     return 0;
 }
