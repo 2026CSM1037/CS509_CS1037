@@ -3,13 +3,10 @@ CXXFLAGS = -O2 -std=c++17
 
 TARGET = matrix_mult_exec
 
-SRCS = main.cpp gemm.cpp gemm_blocking.cpp
+SRCS = main.cpp gemm_simple.cpp gemm_blocking.cpp
 
 all:
 	$(CXX) $(CXXFLAGS) $(SRCS) -o $(TARGET)
-
-run:
-	./$(TARGET) gemm_test_01.txt
 
 clean:
 	rm -f $(TARGET)
