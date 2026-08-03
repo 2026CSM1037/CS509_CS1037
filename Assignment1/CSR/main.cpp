@@ -58,7 +58,6 @@ int main() {
     }
 
     offset[vertices]=pos; // last index is basically going to store total edges
-    // for a vertex with no outgoing edges offset[] is going to be -1
 
     auto blockEnd=chrono::high_resolution_clock::now();
     auto blockTime=chrono::duration_cast<chrono::milliseconds>(blockEnd-blockStart);
