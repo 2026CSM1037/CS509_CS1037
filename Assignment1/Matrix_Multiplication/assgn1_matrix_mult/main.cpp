@@ -90,7 +90,7 @@ int main(){
     if(choice==1){
 
         int testNo;
-        cout<<"Enter test case number : ";
+        cout<<"Enter test case number (any between 1-5): ";
         cin>>testNo;
 
         string fileName="gemm_test_0"+to_string(testNo)+".txt";
