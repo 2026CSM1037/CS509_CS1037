@@ -3,7 +3,7 @@ CXXFLAGS = -O2 -std=c++17
 
 TARGET = csr_conversion
 
-SRCS = main.cpp
+SRCS = driver.cpp csr.cpp
 
 all:
 	$(CXX) $(CXXFLAGS) $(SRCS) -o $(TARGET)
