@@ -4,9 +4,9 @@
 using namespace std;
 
 int main() {
-    int m = 60;
-    int k = 40; //col of matrix A, also the row of matrix B
-    int n = 50;
+    int m = 10000;
+    int k = 10000; //col of matrix A, also the row of matrix B
+    int n = 10000;
 
     random_device rd;
     mt19937 gen(rd());

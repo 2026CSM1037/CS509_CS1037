@@ -60,7 +60,7 @@ int main() {
     offset[vertices]=pos; // last index is basically going to store total edges
 
     auto blockEnd=chrono::high_resolution_clock::now();
-    auto blockTime=chrono::duration_cast<chrono::milliseconds>(blockEnd-blockStart);
+    auto blockTime=chrono::duration<double, milli>(blockEnd-blockStart);
 
     cout<<"Offset Array"<<endl;
     printArray(offset,vertices+1);
@@ -72,6 +72,8 @@ int main() {
     printArray(property,pos);
 
     cout<<"CSR conversion completed in : "<<blockTime.count()<<" milliseconds"<<endl;
+
+    cout<<endl;
 
     return 0;
 }
