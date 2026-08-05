@@ -22,23 +22,16 @@ int main(){
         executeCSR(fileName);
     }
     else if(choice==2){
-
         int testNo=1;
-
-        while(true){
-
+        while(1){
             string fileName="graph_test_0"+to_string(testNo)+".txt";
-
             ifstream fin(fileName);
-
             if(!fin){
                 break;
             }
-
             fin.close();
 
             executeCSR(fileName);
-
             testNo++;
         }
     }
